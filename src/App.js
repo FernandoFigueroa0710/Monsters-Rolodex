@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { getNames } from "./components/monster_actions";
 import { connect } from "react-redux";
+//components
+import CardList from "./components/card-list/cardList.component";
+
 class App extends Component {
   constructor() {
     super();
@@ -17,11 +20,11 @@ class App extends Component {
     return (
       <div className="landing_page-main">
         <h1>Monsters Rolodex</h1>
-        <div>
-          {this.state.monsters.map((monster, index) => (
+        <CardList>
+          {this.state.monsters.map(monster => (
             <div key={monster.id}>{monster.name}</div>
           ))}
-        </div>
+        </CardList>
       </div>
     );
   }
