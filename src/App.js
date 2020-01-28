@@ -20,11 +20,7 @@ class App extends Component {
     return (
       <div className="landing_page-main">
         <h1>Monsters Rolodex</h1>
-        <CardList>
-          {this.state.monsters.map(monster => (
-            <div key={monster.id}>{monster.name}</div>
-          ))}
-        </CardList>
+        <CardList monsters={this.state.monsters} />
       </div>
     );
   }
