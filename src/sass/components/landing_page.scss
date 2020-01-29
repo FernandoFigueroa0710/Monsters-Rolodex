@@ -1,6 +1,14 @@
-.landing-page {
+.landing_page-main {
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+    to left,
+    rgba(7, 27, 82, 1) 0%,
+    rgba(0, 128, 128, 1) 100%
+  );
   & > h1 {
+    font-family: "Bigelow Rules", cursive;
     font-size: 5rem;
+    color: #008080;
   }
-  background-color: rgb(241, 232, 232);
 }
