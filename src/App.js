@@ -3,12 +3,13 @@ import { getNames } from "./components/monster_actions";
 import { connect } from "react-redux";
 //components
 import CardList from "./components/card-list/cardList.component";
-
+import SearchBox from "./components/searchbox/searchBox.component";
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      monsters: []
+      monsters: [],
+      searchField: ""
     };
   }
   componentDidMount() {
@@ -16,11 +17,23 @@ class App extends Component {
       .dispatch(getNames())
       .then(response => this.setState({ monsters: response.payload }));
   }
+
+  handleChange = e => {
+    this.setState({ searchField: e.target.event });
+  };
   render() {
+    const { monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter(monster =>
+      monster.name.toLowerCase().includes(searchField.toLowerCase())
+    );
     return (
       <div className="landing_page-main">
         <h1>Monsters Rolodex</h1>
-        <CardList monsters={this.state.monsters} />
+        <SearchBox
+          placeholder="Search your monster"
+          handleChange={this.handleChange}
+        />
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }

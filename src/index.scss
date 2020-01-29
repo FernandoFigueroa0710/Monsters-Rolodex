@@ -2,8 +2,4 @@
 @import "./sass/components/landing_page.scss";
 @import "./sass/components/card-list.styles";
 @import "./sass/components/card.styles";
-* {
-  margin: 0;
-  top: 0;
-  font-family: "PT Sans", sans-serif;
-}
+@import "./sass/components/searchBox.styles";
